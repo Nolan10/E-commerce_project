@@ -2,8 +2,20 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class TestECommerce {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Order order = new Order(1);
+
+        order.attach(new PriceObserver());
+        order.attach(new QuantityObserver());
+
+        order.addItem(50);
+        order.addItem(60);
+        order.addItem(40);
+        order.addItem(30);
+        order.addItem(20);
+        order.addItem(50);
+        order.addItem(10);
+
+        System.out.println("Final order: " + order);
+
     }
 }
